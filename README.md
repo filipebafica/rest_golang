@@ -1,5 +1,5 @@
 # simple_server_golang
-This is a simple server implementation with golang.
+A REST application with golang.
 
 ## ⚙️ Getting Started
 ```
