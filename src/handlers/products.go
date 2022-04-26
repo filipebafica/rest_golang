@@ -3,8 +3,7 @@ package handlers
 import (
 	"log"
 	"net/http"
-	"github.com/filipebafica/src/data"
-	"encoding/json"
+	"github.com/filipebafica/rest_golang/src/data"
 )
 
 type Products struct {
@@ -15,12 +14,20 @@ func NewProducts(l *log.Logger) *Products {
 	return &Products{l}
 }
 
-func (p *Products) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
+func (p *Products) getProducts(rw http.ResponseWriter, r *http.Request) {
 	productList := data.GetProducts()
-	data, err != json.Marshall(productList)
+	err := productList.ToJson(rw)
 	if err != nil {
 		http.Error(rw, "Unable to marshal json", http.StatusInternalServerError)
 	}
+}
 
-	rw.Writer(data)
+func (p *Products) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
+	// GET Method
+	if r.Method == http.MethodGet {
+		p.getProducts(rw, r)
+		return
+	}
+	// catch all
+	rw.WriteHeader(http.StatusMethodNotAllowed)
 }

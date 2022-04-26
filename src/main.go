@@ -7,7 +7,6 @@ import (
 	"os"
 	"os/signal"
 	"time"
-
 	"github.com/filipebafica/rest_golang/src/handlers"
 )
 
