@@ -1,2 +1,2 @@
-# simple_server_golang
+# rest_golang
 This is a simple REST application implementation with golang.
