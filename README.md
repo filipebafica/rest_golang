@@ -1,4 +1,4 @@
-# simple_server_golang
+# rest_golang
 A REST application with golang.
 
 ## ⚙️ Getting Started
