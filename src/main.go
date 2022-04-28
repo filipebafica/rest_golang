@@ -29,7 +29,7 @@ func main () {
 		WriteTimeout: 1 * time.Second,
 	}
 
-	// light weighted thread that will execute in concurrency mode
+	// light weighted thread (not OS thread) that will execute in concurrency mode
 	go func (){
 		err := server.ListenAndServe()
 		if err != nil {
